@@ -15,16 +15,15 @@ app.get('/users/', async(req, res) => {
 });
 
 app.post('/users/create/:id/', async(req, res) => {
-    const { id, username, email } = req.body;
+    const { username, email } = req.body;
 
-    if (!id || !username || !email) {
+    if (!username || !email) {
         res.status(418).send({ message: "One or more required fields were not provided!" });
     }
 
     try {
         const user = await prisma.user.create({
             data: {
-                id,
                 username,
                 email,
             },
