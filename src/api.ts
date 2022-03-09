@@ -14,7 +14,7 @@ app.get('/users/', async(req, res) => {
     }
 });
 
-app.post('/users/create/:id/', async(req, res) => {
+app.post('/users/create/', async(req, res) => {
     const { username, email } = req.body;
 
     if (!username || !email) {
